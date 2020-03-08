@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #fff;
+  color: #424242;
+  line-height: 1.5;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+strong, b {
+  color: #212121;
+}
+
+svg {
+  display: block;
+  fill: currentColor;
+}
+
+.btn.btn--icon {
+  -webkit-appearance: none;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.btn.btn--icon:hover, .btn.btn--icon:active {
+  background-color: #ccc;
+}
+
+.btn.btn--icon svg {
+  margin: auto;
+}
+
+.app, .app__layout {
+  height: 100%;
+}
+
+.app__layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.app__topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  padding: 3px 5px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.app__topbar :nth-child(2), .app__topbar :nth-child(2) .btn {
+  margin-left: 0;
+}
+
+.app__topbar :last-child, .app__topbar :last-child .btn {
+  margin-right: 0;
+}
+
+.app__progress-bar, .app__progress-bar__loaded-fraction {
+  position: fixed;
+  top: 44px;
+  height: 3px;
+}
+
+.app__progress-bar {
+  width: 100%;
+  background-color: #fce3ee;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.app__progress-bar.visible {
+  opacity: 1;
+}
+
+.app__progress-bar__loaded-fraction {
+  background-color: #c51162;
+  transition: width 0.5s;
+}
+
+.app__search {
+  flex-grow: 1;
+}
+
+.app__search-field {
+  position: relative;
+}
+
+.app__search-field, .app__search-input {
+  display: block;
+  width: 100%;
+}
+
+.app__search-input {
+  -webkit-appearance: none;
+  outline: none;
+  color: inherit;
+  position: relative;
+  background-color: #eee;
+  border: 1px solid #eee;
+  padding: 5px 10px 5px 39px;
+  border-radius: 4px;
+  font-size: 1.3em;
+}
+
+.app__search-input:hover, .app__search-input:active {
+  background-color: #ccc;
+  transition: background-color 0.1s;
+}
+
+.app__search-input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px #c51162;
+}
+
+.app__search-input:focus + .app__search-icon {
+  color: #c51162;
+}
+
+.app__search-input::placeholder {
+  opacity: 1;
+  color: #9e9e9e;
+}
+
+.app__search-icon {
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  color: #9e9e9e;
+}
+
+.app__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dict-content {
+  padding: 5px 15px;
+}
+
+.dict-content--error {
+  margin: auto;
+}
+
+/* Contenu dictionnaire - adapté du code de cnrtl.fr */
+
+#lexicontent {
+  font-family: inherit !important;
+}
+
+.tlf_cvedette {
+	margin-bottom: 5px;
+  font-size: 1.5em;
+}
+
+.tlf_cmot {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.tlf_cmot, .tlf_cmot b {
+  color: #c51162 !important;
+}
+
+.tlf_cplan {
+	font-weight: bold;
+  color: #212121;
+}
+
+.tlf_cdefinition {
+  display: block;
+  font-weight: bold;
+  color: #6200EA;
+  margin-bottom: 15px;
+}
+
+.tlf_smallcaps {
+	font-variant: small-caps;
+	font-size: 0.9em;
+}
+
+.tlf_parah {
+	margin-bottom: 15px;
+}
+
+.tlf_paraputir {
+	margin-bottom: 4px;
+}
+
+.tlf_parsynt {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.tlf_parothers {
+	margin-top: 8px;
+	margin-bottom: 4px;
+}
+
+.tlf_tabulation {
+	margin: 4px 0px 4px 20px;
+	padding: 0px 0px 0px 12px;
+}
