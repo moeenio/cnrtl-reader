@@ -162,8 +162,19 @@ svg {
   padding: 5px 15px;
 }
 
-.dict-content--error {
+.dict-error {
+  display: none;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
+  text-align: center;
+}
+
+.dict-error svg {
+  display: block;
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
 }
 
 /* Contenu dictionnaire - adapté du code de cnrtl.fr */

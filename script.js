@@ -6,6 +6,7 @@ var appBackButton = document.querySelector(".js-back-button");
 var appForwardButton = document.querySelector(".js-forward-button");
 var appMainSearch = document.querySelector(".js-app-main-search");
 var dictContentHolder = document.querySelector(".js-dict-content");
+var dictError = document.querySelector(".js-dict-error")
 
 var setLoadProgress = percent => {
   percent === 100 ? appProgressBar.classList.remove("visible") : appProgressBar.classList.add("visible");
@@ -14,16 +15,22 @@ var setLoadProgress = percent => {
 
 var getArticle = article => {
   dictContentHolder.innerHTML = "";
+  dictError.style.display = "none";
   setLoadProgress(50);
-  fetch(`https://cors-anywhere.glitch.me/www.cnrtl.fr/definition/${article}`).
-  then(response => response.text()).
-  then(responseText => domParser.parseFromString(responseText, "text/html")).
-  then(responseDOM => {
+  fetch(`https://cors-anywhere.glitch.me/www.cnrtl.fr/definition/${article}`)
+  .then(response => response.text())
+  .then(responseText => domParser.parseFromString(responseText, "text/html"))
+  .then(responseDOM => {
     setLoadProgress(90);
-    console.log(responseDOM);
-    var dictContent = responseDOM.getElementById("lexicontent").outerHTML || responseDOM.getElementById("contentbox").outerHTML;
-    dictContentHolder.innerHTML = dictContent;
+    return responseDOM.getElementById("lexicontent").outerHTML;
+  })
+  .then(responseDictContent => {
+    dictContentHolder.innerHTML = responseDictContent;
     setLoadProgress(100);
+  })
+  .catch(() => {
+    setLoadProgress(100);
+    dictError.style.display = "flex";
   });
 };
 
