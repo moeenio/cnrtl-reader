@@ -1,0 +1,19 @@
+{
+  "name": "cnrtl-reader",
+  "version": "0.1.0",
+  "description": "A PWA for reading dictionaries from CNRTL.fr",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/locness3/cnrtl-reader.git"
+  },
+  "keywords": [
+    "pwa"
+  ],
+  "author": "Locness",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/locness3/cnrtl-reader/issues"
+  },
+  "homepage": "https://github.com/locness3/cnrtl-reader#readme"
+}
