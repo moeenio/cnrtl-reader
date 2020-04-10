@@ -48,5 +48,6 @@ window.onpopstate = () => {
   }
   else {
     dictContentHolder.innerHTML = "";
+    dictError.style.display = "none";
   }
 };
