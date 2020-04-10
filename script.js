@@ -43,5 +43,10 @@ appBackButton.addEventListener("click", () => history.back());
 appForwardButton.addEventListener("click", () => history.forward());
 
 window.onpopstate = () => {
-  getArticle(history.state.article);
+  if (history.state) {
+    getArticle(history.state.article);
+  }
+  else {
+    dictContentHolder.innerHTML = "";
+  }
 };
