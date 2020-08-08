@@ -78,9 +78,14 @@ svg {
   margin-right: 0;
 }
 
+.app.searching .app__topbar .btn {
+  display: none;
+}
+
 .app__progress-bar, .app__progress-bar__loaded-fraction {
   position: fixed;
   top: 44px;
+  left: 0;
   height: 3px;
 }
 
