@@ -43,10 +43,12 @@ appSearchButton.addEventListener("click", (e) => {
 
 appMainSearch.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
-    const searchTerm = appMainSearch.value.trim();
-    loadArticle(searchTerm);
-    history.pushState({ article: appMainSearch.value }, appMainSearch.value);
-    appMainSearch.blur();
+    if (appMainSearch.value !== "") {
+      const searchTerm = appMainSearch.value.trim();
+      loadArticle(searchTerm);
+      history.pushState({ article: appMainSearch.value }, appMainSearch.value);
+      appMainSearch.blur();
+    }
   }
 });
 
