@@ -97,7 +97,7 @@ svg {
   font-size: 1.1em;
 }
 
-.app.searching .app__topbar .btn {
+.app.searching .app__topbar .btn, .app.searching .app__title {
   display: none;
 }
 
