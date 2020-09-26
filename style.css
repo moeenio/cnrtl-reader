@@ -40,7 +40,8 @@ svg {
 }
 
 .btn.btn--icon:hover, .btn.btn--icon:active {
-  background-color: #ccc;
+  color: #c51162;
+  background-color: #fce3ee;
 }
 
 .btn.btn--icon svg {
@@ -78,6 +79,23 @@ svg {
   margin-right: 0;
 }
 
+.app__topbar .btn--push-left {
+  margin-right: auto;
+}
+
+.app__topbar .btn--push-right {
+  margin-left: auto;
+}
+
+.app__topbar .app__title {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1em;
+}
+
 .app.searching .app__topbar .btn {
   display: none;
 }
@@ -106,7 +124,12 @@ svg {
 }
 
 .app__search {
+  display: none;
   flex-grow: 1;
+}
+
+.app.searching .app__search {
+  display: flex;
 }
 
 .app__search-field {

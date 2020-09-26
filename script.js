@@ -1,11 +1,13 @@
 const domParser = new DOMParser();
 
 const app = document.querySelector(".app");
+const appTitle = document.querySelector(".js-app-title");
 const appProgressBar = document.querySelector(".app__progress-bar");
 const appProgressBarLoaded = document.querySelector(".app__progress-bar__loaded-fraction");
 const appBackButton = document.querySelector(".js-back-button");
 const appForwardButton = document.querySelector(".js-forward-button");
 const appMainSearch = document.querySelector(".js-app-main-search");
+const appSearchButton = document.querySelector(".js-search-button");
 const dictContentHolder = document.querySelector(".js-dict-content");
 const dictError = document.querySelector(".js-dict-error")
 
@@ -15,7 +17,7 @@ function setLoadProgress (percent) {
 };
 
 function loadArticle (article) {
-  appMainSearch.value = article;
+  appTitle.textContent = article;
   dictContentHolder.innerHTML = "";
   dictError.style.display = "none";
   setLoadProgress(50);
@@ -34,8 +36,12 @@ function loadArticle (article) {
   });
 };
 
-appMainSearch.addEventListener("keyup", (e) => {
+appSearchButton.addEventListener("click", (e) => {
   app.classList.add("searching");
+  appMainSearch.focus();
+})
+
+appMainSearch.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     const searchTerm = appMainSearch.value.trim();
     loadArticle(searchTerm);
@@ -57,6 +63,7 @@ window.onpopstate = () => {
     loadArticle(history.state.article);
   }
   else {
+    appTitle.textContent = "";
     dictContentHolder.innerHTML = "";
     dictError.style.display = "none";
   }
