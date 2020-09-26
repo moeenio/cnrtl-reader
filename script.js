@@ -30,7 +30,7 @@ function loadArticle (article) {
   dictError.style.display = "none";
   setLoadProgress(50);
   const termUrl = `https://www.cnrtl.fr/definition/${article}`;
-  fetch(`http://locness-cors.duckdns.org/${termUrl}`)
+  fetch(`https://cors-anywhere.herokuapp.com/${termUrl}`)
   .then(response => response.text())
   .then(responseText => {
     const responseDOM = domParser.parseFromString(responseText, "text/html")
@@ -40,7 +40,7 @@ function loadArticle (article) {
     const termTitle = dictContentHolder.querySelector(".tlf_cvedette");
     insertAfter(termTitle, termActions);
     dictContentSourceLink().href = termUrl;
-    
+
     setLoadProgress(100);
   })
   .catch(() => {
