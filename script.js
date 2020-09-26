@@ -1,5 +1,12 @@
 const domParser = new DOMParser();
 
+// https://stackoverflow.com/a/4793630/10074924
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+const termActions = document.importNode(
+  document.getElementById("term-actions-tpl").content, true);
 const app = document.querySelector(".app");
 const appTitle = document.querySelector(".js-app-title");
 const appProgressBar = document.querySelector(".app__progress-bar");
@@ -9,6 +16,7 @@ const appForwardButton = document.querySelector(".js-forward-button");
 const appMainSearch = document.querySelector(".js-app-main-search");
 const appSearchButton = document.querySelector(".js-search-button");
 const dictContentHolder = document.querySelector(".js-dict-content");
+const dictContentSourceLink = () => document.querySelector(".js-source-link");
 const dictError = document.querySelector(".js-dict-error")
 
 function setLoadProgress (percent) {
@@ -21,13 +29,18 @@ function loadArticle (article) {
   dictContentHolder.innerHTML = "";
   dictError.style.display = "none";
   setLoadProgress(50);
-  fetch(`https://cors-anywhere.herokuapp.com/www.cnrtl.fr/definition/${article}`)
+  const termUrl = `https://www.cnrtl.fr/definition/${article}`;
+  fetch(`http://locness-cors.duckdns.org/${termUrl}`)
   .then(response => response.text())
   .then(responseText => {
     const responseDOM = domParser.parseFromString(responseText, "text/html")
-    setLoadProgress(90);
     const responseDictContent = responseDOM.getElementById("lexicontent").outerHTML;
     dictContentHolder.innerHTML = responseDictContent;
+
+    const termTitle = dictContentHolder.querySelector(".tlf_cvedette");
+    insertAfter(termTitle, termActions);
+    dictContentSourceLink().href = termUrl;
+    
     setLoadProgress(100);
   })
   .catch(() => {
