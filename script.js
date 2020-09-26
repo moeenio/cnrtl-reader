@@ -58,7 +58,6 @@ appBackButton.addEventListener("click", () => history.back());
 appForwardButton.addEventListener("click", () => history.forward());
 
 window.onpopstate = () => {
-  console.log("popstate");
   if (history.state) {
     loadArticle(history.state.article);
   }
@@ -68,3 +67,9 @@ window.onpopstate = () => {
     dictError.style.display = "none";
   }
 };
+
+window.onload = () => {
+  if (history.state) {
+    loadArticle(history.state.article);
+  }
+}
