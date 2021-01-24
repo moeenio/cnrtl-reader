@@ -18,6 +18,11 @@ body {
     Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+a {
+  color: #c51162;
+  text-decoration-style: dotted;
+}
+
 strong, b {
   color: #212121;
 }
@@ -27,21 +32,48 @@ svg {
   fill: currentColor;
 }
 
-.btn.btn--icon {
+.btn {
   -webkit-appearance: none;
   display: flex;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  text-decoration: none;
+  color: inherit;
+  background-color: #eee;
+}
+
+.btn:hover, .btn:active {
+  color: #c51162;
+  background-color: #fce3ee;
+}
+
+.btn--flat {
+  color: #888;
+  background-color: transparent;
+}
+
+.btn--icon {
   width: 40px;
   height: 40px;
   padding: 0;
   margin: 0 5px;
-  border: none;
-  border-radius: 4px;
   background-color: transparent;
 }
 
 .btn.btn--icon:hover, .btn.btn--icon:active {
   color: #c51162;
   background-color: #fce3ee;
+}
+
+.btn.btn--icon-left svg {
+  margin-right: 5px;
+}
+
+.btn.btn--icon-right svg {
+  margin-left: 5px;
 }
 
 .btn.btn--icon svg {
@@ -189,6 +221,10 @@ svg {
 
 .dict-content {
   padding: 5px 15px;
+}
+
+.term-actions {
+  display: flex;
 }
 
 .dict-error {
