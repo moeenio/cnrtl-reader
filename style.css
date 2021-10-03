@@ -101,7 +101,7 @@ svg {
   display: none;
 }
 
-.app__progress-bar, .app__progress-bar__loaded-fraction {
+.app__progress-bar, .app__progress-bar .progress-bar__fragment {
   position: fixed;
   top: 44px;
   left: 0;
