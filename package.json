@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A PWA for reading dictionaries from CNRTL.fr",
   "main": "index.html",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/locness3/cnrtl-reader.git"
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/locness3/cnrtl-reader/issues"
   },
-  "homepage": "https://github.com/locness3/cnrtl-reader#readme"
+  "homepage": "https://github.com/locness3/cnrtl-reader#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "gulp": "^4.0.2",
+    "gulp-rollup": "^2.17.0",
+    "rollup": "^2.58.0"
+  }
 }

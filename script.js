@@ -3,6 +3,7 @@ const domParser = new DOMParser();
 const app = document.querySelector(".app");
 const appTitle = document.querySelector(".js-app-title");
 const appProgressBar = document.querySelector(".app__progress-bar");
+alert(typeof appProgressBar);
 const appProgressBarLoaded = document.querySelector(".app__progress-bar__loaded-fraction");
 const appBackButton = document.querySelector(".js-back-button");
 const appForwardButton = document.querySelector(".js-forward-button");
@@ -21,7 +22,7 @@ function loadArticle (article) {
   dictContentHolder.innerHTML = "";
   dictError.style.display = "none";
   setLoadProgress(50);
-  fetch(`https://cors-anywhere.herokuapp.com/www.cnrtl.fr/definition/${article}`)
+  fetch(`https://locness-cors.duckdns.org/www.cnrtl.fr/definition/${article}`)
   .then(response => response.text())
   .then(responseText => {
     const responseDOM = domParser.parseFromString(responseText, "text/html")
