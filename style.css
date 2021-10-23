@@ -119,7 +119,7 @@ svg {
   opacity: 1;
 }
 
-.app__progress-bar__loaded-fraction {
+.progress-bar__fragment {
   background-color: #c51162;
   transition: width 0.5s;
 }

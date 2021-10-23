@@ -14,11 +14,6 @@ const appSearchButton = document.querySelector(".js-search-button");
 const dictContentHolder = document.querySelector(".js-dict-content");
 const dictError = document.querySelector(".js-dict-error")
 
-/*function setLoadProgress (percent) {
-  percent === 100 ? appProgressBar.classList.remove("visible") : appProgressBar.classList.add("visible");
-  appProgressBarLoaded.style.width = percent + "%";
-};*/
-
 function loadArticle (article) {
   appTitle.textContent = article;
   dictContentHolder.innerHTML = "";
