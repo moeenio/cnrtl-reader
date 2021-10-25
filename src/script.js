@@ -1,6 +1,6 @@
 import ProgressBar from "./ProgressBar.js";
+import TlfiScraper from "./scrapers/TlfiScraper.js";
 const domParser = new DOMParser();
-alert("linux est supérieur en tout")
 
 const app = document.querySelector(".app");
 const appTitle = document.querySelector(".js-app-title");
@@ -20,7 +20,20 @@ function loadArticle (article) {
   dictContentHolder.innerHTML = "";
   dictError.style.display = "none";
   appProgressBar.setProgress(50);
-  fetch(`https://locness-cors.duckdns.org/www.cnrtl.fr/definition/${article}`)
+  //const scraper = new BaseScraper();
+  const scraper = new TlfiScraper();
+  scraper.lookup(article)
+  .then(response => scraper.getCleanResponseHtml(response))
+  .then(responseCleanHtml => {
+    dictContentHolder.innerHTML = responseCleanHtml;
+    appProgressBar.setProgress(100);
+  })
+  .catch((error) => {
+    appProgressBar.setProgress(100);
+    dictError.style.display = "flex";
+    appTitle.textContent = error;
+  })
+  /*fetch(`https://locness-cors.duckdns.org/www.cnrtl.fr/definition/${article}`)
   .then(response => response.text())
   .then(responseText => {
     const responseDOM = domParser.parseFromString(responseText, "text/html")
@@ -32,7 +45,7 @@ function loadArticle (article) {
   .catch(() => {
     appProgressBar.setProgress(100);
     dictError.style.display = "flex";
-  });
+  });*/
 };
 
 appSearchButton.addEventListener("click", (e) => {

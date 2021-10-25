@@ -17,7 +17,7 @@ function server() {
             baseDir: "./"
         }
     });
-    gulp.watch("./src/*.js", js).on("change", browserSync.reload);
+    gulp.watch("./src/**/*.js", js).on("change", browserSync.reload);
 }
 
 function js(cb) {
