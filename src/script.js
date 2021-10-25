@@ -1,11 +1,11 @@
-import ProgressBar from "./src/ProgressBar.js";
+import ProgressBar from "./ProgressBar.js";
 const domParser = new DOMParser();
+alert("linux est supérieur en tout")
 
 const app = document.querySelector(".app");
 const appTitle = document.querySelector(".js-app-title");
 //const appProgressBar = document.querySelector(".app__progress-bar");
 const appProgressBar = new ProgressBar(document.querySelector(".app__progress-bar"));
-alert(typeof appProgressBar);
 //const appProgressBarLoaded = document.querySelector(".app__progress-bar__loaded-fraction");
 const appBackButton = document.querySelector(".js-back-button");
 const appForwardButton = document.querySelector(".js-forward-button");
@@ -13,6 +13,7 @@ const appMainSearch = document.querySelector(".js-app-main-search");
 const appSearchButton = document.querySelector(".js-search-button");
 const dictContentHolder = document.querySelector(".js-dict-content");
 const dictError = document.querySelector(".js-dict-error")
+
 
 function loadArticle (article) {
   appTitle.textContent = article;
