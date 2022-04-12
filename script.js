@@ -1,3 +1,5 @@
+const CORS_BASEURL = "https://locness-cors.duckdns.org/"
+
 const domParser = new DOMParser();
 
 const app = document.querySelector(".app");
@@ -21,7 +23,7 @@ function loadArticle (article) {
   dictContentHolder.innerHTML = "";
   dictError.style.display = "none";
   setLoadProgress(50);
-  fetch(`https://cors-anywhere.herokuapp.com/www.cnrtl.fr/definition/${article}`)
+  fetch(`${CORS_BASEURL}www.cnrtl.fr/definition/${article}`)
   .then(response => response.text())
   .then(responseText => {
     const responseDOM = domParser.parseFromString(responseText, "text/html")
