@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-  background-color: #fff;
+  background-color: #eee;
   color: #424242;
   line-height: 1.5;
   font-size: 15px;
@@ -49,6 +49,8 @@ svg {
 }
 
 .app, .app__layout {
+  margin: 0 auto;
+  max-width: 900px;
   min-height: 100%;
   background-color: #fff;
 }
@@ -103,13 +105,13 @@ svg {
 }
 
 .app__progress-bar, .app__progress-bar__loaded-fraction {
-  position: fixed;
-  top: 44px;
+  position: absolute;
   left: 0;
   height: 3px;
 }
 
 .app__progress-bar {
+  top: 44px;
   width: 100%;
   background-color: #fce3ee;
   opacity: 0;
