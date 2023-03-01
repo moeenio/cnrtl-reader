@@ -1,0 +1,50 @@
+def App {
+    viewHost ViewHost {
+        views: {
+            "main": MainView("main"),
+            "dictpicker": DictPickerView("dictpicker"),
+            "settings": SettingsView("settings")
+        }
+    }
+    constructor() ->
+        window.onload/onpopstate ->
+            viewHost.restoreHistory()
+}
+
+def View {
+    string name
+    Element rootEl
+    {"key": element} elements
+    string defaultDisplayStyle = "block"
+    {} state
+    focus -> rootEl.focus
+    show -> rootEl.style.display = defaultDisplayStyle
+    hide -> rootEl.style.display = "none"
+    pushHistory -> history.push({state: view: name: this.name, data: this.state})
+}
+
+def ViewHost {
+    views {"name": View(name, rootEl)}
+    View currentView
+    switchToView(string name) ->
+        find(views where visible = true -> View.hide());
+        views[name].show()
+        views[name].focus()
+        currentView = views[name]
+    restoreHistory() ->
+        if $ = history.state.view.name and views[history.state.view.name]->
+                if $1 = history.state.view.data -> this.views[$].state = $1
+                viewHost.setCurrentView($)
+
+}
+
+def MainView <- View {
+    constructor(name, rootEl)
+    elements: {"searchbar": Element}
+    focus -> elements["searchbar"].focus()
+    show -> loadArticle(this.data)
+    elements.searchbar.onchange ->
+        this.state.article = searchbar.text
+        loadArticle(searchbar.text)
+        this.pushHistory()
+}

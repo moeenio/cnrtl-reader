@@ -4,9 +4,7 @@ const domParser = new DOMParser();
 
 const app = document.querySelector(".app");
 const appTitle = document.querySelector(".js-app-title");
-//const appProgressBar = document.querySelector(".app__progress-bar");
 const appProgressBar = new ProgressBar(document.querySelector(".app__progress-bar"));
-//const appProgressBarLoaded = document.querySelector(".app__progress-bar__loaded-fraction");
 const appBackButton = document.querySelector(".js-back-button");
 const appForwardButton = document.querySelector(".js-forward-button");
 const appMainSearch = document.querySelector(".js-app-main-search");
@@ -58,7 +56,7 @@ appMainSearch.addEventListener("keyup", (e) => {
     if (appMainSearch.value !== "") {
       const searchTerm = appMainSearch.value.trim();
       loadArticle(searchTerm);
-      history.pushState({ article: appMainSearch.value }, appMainSearch.value);
+      history.pushState({ article: searchTerm }, searchTerm);
       appMainSearch.blur();
     }
   }

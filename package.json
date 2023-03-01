@@ -17,7 +17,9 @@
     "url": "https://github.com/locness3/cnrtl-reader/issues"
   },
   "homepage": "https://github.com/locness3/cnrtl-reader#readme",
-  "dependencies": {},
+  "dependencies": {
+    "whatwg-fetch": "^3.6.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
